@@ -1,0 +1,34 @@
+import numpy as np
+from keras.datasets import mnist
+from keras import Sequential
+from keras.layers import Input, Conv2D, MaxPooling2D
+from keras.models import load_model
+import matplotlib.pyplot as plt
+# 指定亂數種子
+np.random.seed(7)
+# 載入資料集
+(X_train, Y_train), (_, _) = mnist.load_data()
+# 將圖片轉換成 4D 張量
+X_train = X_train.reshape(X_train.shape[0], 28, 28, 1).astype("float32")
+# 因為是固定範圍, 所以執行正規化, 從 0-255 至 0-1
+X_train = X_train / 255
+# 建立Keras的Sequential模型
+model = load_model("mnist.keras")
+model.summary()   # 顯示模型摘要資訊
+# 使用 Sequential 建立 Conv2D 和 MaxPooling 層
+model_test = Sequential()
+model_test.add(Input(shape=(28, 28, 1)))
+model_test.add(Conv2D(16, kernel_size=(5, 5), padding="same",
+                      activation="relu"))
+model_test.add(MaxPooling2D(pool_size=(2, 2)))
+for i in range(len(model_test.layers)):
+    model_test.layers[i].set_weights(model.layers[i].get_weights())
+output = model_test.predict(X_train[0].reshape(1,28,28,1))
+# 繪出第1層 MaxPooling 層的輸出
+plt.figure(figsize=(10,8))
+for i in range(0,16):
+    plt.subplot(4,4,i+1)
+    plt.imshow(output[0,:,:,i], cmap="gray")
+    plt.axis("off")
+
+     

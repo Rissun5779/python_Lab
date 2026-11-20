@@ -1,0 +1,7 @@
+IMDb資料集:
+https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
+https://mega.nz/file/rVt0jSJA#VyKDaTOBbHxFc7L_CuD7g4SVLIorX7ntmJggQJDDUQs
+
+貓狗圖片資料集:
+https://zenodo.org/records/5226945/files/cats_dogs_light.zip?download=1
+https://mega.nz/file/HMN3gbTC#99X4XmBKh_-yF8_af6LPvv2I4W28osJau9qDmZ1ZIh4

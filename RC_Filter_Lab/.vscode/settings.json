@@ -1,0 +1,14 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.stubPath": "typings",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/typings",
+        "${workspaceFolder}/ESP32",
+        "${workspaceFolder}/ESP32/Library"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportUndefinedVariable": "warning",
+        "reportMissingModuleSource": "none"
+    }
+}
